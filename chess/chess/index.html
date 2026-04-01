@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Chess Odyssey</title>
+    <!-- Modern Font: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="ui-container">
+        <header>
+            <h1>3D Chess Odyssey</h1>
+            <div id="turn-indicator" class="turn-white">White's Turn</div>
+        </header>
+
+        <main>
+            <div id="game-status">
+                <p id="status-message"></p>
+                <div style="display: flex; gap: 0.5rem; justify-content: space-between;">
+                    <button id="reset-btn" class="glass-btn" style="flex:1;">Restart</button>
+                    <button id="menu-btn" class="glass-btn" style="flex:1;">Menu</button>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <p class="hint">Click a piece to select it, then click a highlighted square to move.</p>
+                <div class="camera-controls">
+                    <button id="cam-reset" class="glass-btn small-btn">Reset Camera</button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="credits">Powered by Three.js & Stockfish</div>
+        </footer>
+    </div>
+    
+    <!-- Game Mode Selection Modal -->
+    <div id="startup-modal" class="modal-overlay">
+        <div class="modal-content glass-panel">
+            <h2>Select Game Mode</h2>
+            
+            <div class="mode-selection">
+                <button id="mode-pve" class="mode-btn active">Play vs Computer</button>
+                <button id="mode-pvp" class="mode-btn">Two Player (Local)</button>
+            </div>
+
+            <div id="difficulty-wrapper">
+                <label for="difficulty-slider">Computer Difficulty: <span id="diff-value">50</span></label>
+                <input type="range" id="difficulty-slider" min="0" max="100" value="50">
+            </div>
+
+            <button id="start-game-btn" class="glass-btn primary-btn">Start Game</button>
+        </div>
+    </div>
+    
+    <!-- Three.js Container -->
+    <div id="canvas-container"></div>
+    
+    <!-- Scripts -->
+    <!-- Three.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <!-- Chess.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+    
+    <!-- Main Game Logic -->
+    <script src="game.js"></script>
+</body>
+</html>
